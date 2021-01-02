@@ -1,0 +1,6 @@
+img{
+    box-sizing: border-box;
+    /* max-height: 20em; */
+    height:25em;
+    width: 100%;
+}
