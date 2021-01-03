@@ -7,14 +7,12 @@ export const createOrder = (userId,token,orderData) =>{
         formData.append(key,orderData[key])
     }
 
-    try {
-        const response = await fetch(`${API}order/add/${userId}/${token}/`, {
+    return fetch(`${API}order/add/${userId}/${token}/`, {
             method: "POST",
             body: formData
-        });
-        return await response.json();
-    } catch (e) {
-        return console.log("[POST] request to Order API Failed: ", e);
-    }
-
+        })
+        .then(response=>response.json())
+        .catch(err=>console.log("[POST] request error to Order API: ",err))
+     
+    
 }

@@ -32,7 +32,8 @@ def validate_user_session(id,token):
 def add(request,id,token):
     if not validate_user_session(id,token):
         return JsonResponse({'Error': 'Please Login again','code':'1'})
-
+    
+    print("DEBUG")
     if request.method == 'POST':
         user_id = id
         txn_id = request.POST.get('transaction_id')
@@ -49,7 +50,7 @@ def add(request,id,token):
         except UserModel.DoesNotExist:
             return JsonResponse({'Error':'User Doesn\'t exist' })
 
-        ordr =  Order.objects.get_or_create(
+        ordr =  Order(
             user = user,
             product_names =products,
             total_products= total_pro,

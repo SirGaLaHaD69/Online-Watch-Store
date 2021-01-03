@@ -7,6 +7,7 @@ class Product(models.Model):
     name  =  models.CharField(max_length=50)
     description = models.CharField(max_length=250)
     price =  models.CharField(max_length=20)
+    in_stock =  models.BooleanField(default=True)
     stock = models.CharField(max_length=20)
     active = models.BooleanField(default = True,blank=True)
     image =  models.ImageField(upload_to = 'images/',blank = True, null=True)

@@ -42,7 +42,7 @@ def signin(request):
             usr_dict = UserModel.objects.filter(email=username).values()[0]
             usr_dict.pop('password')
 
-            if user.session_token is not '0':
+            if user.session_token != '0':
                 user.session_token = '0'
                 user.save()
                 return JsonResponse({'Error': 'Previous session Exists'})
