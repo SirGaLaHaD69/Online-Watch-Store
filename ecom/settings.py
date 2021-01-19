@@ -25,7 +25,7 @@ SECRET_KEY = 'eb(&g%gd&c0*)7v%uhabskxqvsp0ti(sy7n72_-sdo54ifu(8c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['marlin-the-watch-store.herokuapp.com']
 
 
 # Application definition
