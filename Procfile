@@ -1,2 +1,2 @@
-release : python manage.py migrate
-web : gunicorn ecom.wsgi --log-file -
+release: python manage.py migrate
+web: gunicorn ecom.wsgi --log-file -
