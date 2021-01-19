@@ -12,6 +12,7 @@ braintree = "*"
 gunicorn = "*"
 whitenoise = "*"
 django-utils-six = "*"
+django-heroku = "*"
 
 [dev-packages]
 
