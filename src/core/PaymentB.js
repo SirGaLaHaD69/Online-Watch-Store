@@ -1,5 +1,5 @@
 import React,{Fragment, useEffect, useState} from 'react'
-import { isAuthenticated, signout } from './../auth/helper/index';
+import { isAuthenticated, signout } from '../auth/helper/index';
 import { getToken, processPayment } from './helper/paymentHelper';
 import { withRouter } from 'react-router-dom';
 import DropIn from 'braintree-web-drop-in-react'

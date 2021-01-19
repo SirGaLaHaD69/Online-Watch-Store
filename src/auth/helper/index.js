@@ -1,5 +1,5 @@
 import { emptyCart } from '../../core/helper/cartHelper';
-import { API } from './../../backend';
+import { API } from '../../backend';
 
 
 export const signup = user =>{

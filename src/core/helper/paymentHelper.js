@@ -1,5 +1,5 @@
 
-import { API } from './../../backend';
+import { API } from '../../backend';
 
 export const getToken = (userId,token) =>{
 

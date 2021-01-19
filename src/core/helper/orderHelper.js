@@ -1,4 +1,4 @@
-import { API } from './../../backend';
+import { API } from '../../backend';
 
 export const createOrder = (userId,token,orderData) =>{
     const formData = new FormData()

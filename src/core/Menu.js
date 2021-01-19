@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import './core.css'
-import { isAuthenticated, signout } from './../auth/helper/index';
+import { isAuthenticated, signout } from '../auth/helper/index';
 const Menu = ({history,path})=> {
 
     const currentTab = (history,path) =>{

@@ -1,7 +1,7 @@
 import React from 'react'
-import Base from './../core/Base';
+import Base from '../core/Base';
 import {useState} from 'react'
-import { signup } from './../auth/helper/index';
+import { signup } from '../auth/helper/index';
 
 export default function Signup() {
 
