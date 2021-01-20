@@ -169,6 +169,6 @@ AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.getenv('S3_BUCKET_NAME')
 MEDIA_URL = 'http://%s.s3.amazonaws.com/media/images/' % AWS_STORAGE_BUCKET_NAME
-DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
-STATICFILES_STORAGE = "storages.backends.s3boto.S3BotoStorage"
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3BotoStorage"
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3BotoStorage"
 
