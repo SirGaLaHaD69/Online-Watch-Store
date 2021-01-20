@@ -113,7 +113,6 @@ export default function Signin() {
         {error && errorMessage()}
         <LoadingMessage/>
         {SigninForm()}
-        <p className="text-center">{JSON.stringify(values)}</p>
         {redirectAfterSignin()}
         </Base>
     )
