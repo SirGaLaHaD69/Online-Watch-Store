@@ -169,6 +169,6 @@ AWS_ACCESS_KEY_ID = 'ASIA347A4W5KR6GP2R4T'
 AWS_SECRET_ACCESS_KEY = 'qvSblRKjeZeP/qqSnSipfPvQ2FkCMAEfD3cvaL+Q'
 AWS_STORAGE_BUCKET_NAME ='marlin-watch-store'
 PUBLIC_MEDIA_LOCATION = 'media/'
-MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/images/'
+MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'
 # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
