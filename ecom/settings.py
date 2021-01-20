@@ -13,7 +13,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# MEDIA_DIR =  os.path.join(BASE_DIR,'media')
+MEDIA_DIR =  os.path.join(BASE_DIR,'media')
 STATIC_DIR = os.path.join(BASE_DIR,'static')
 
 # Quick-start development settings - unsuitable for production
@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # MEDIA_URL = '/media/'
-# MEDIA_ROOT = MEDIA_DIR
+MEDIA_ROOT = MEDIA_DIR
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'build/static')
@@ -170,4 +170,5 @@ AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.getenv('S3_BUCKET_NAME')
 MEDIA_URL = 'http://%s.s3.amazonaws.com/media/images/' % AWS_STORAGE_BUCKET_NAME
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto.S3BotoStorage"
+STATICFILES_STORAGE = "storages.backends.s3boto.S3BotoStorage"
 
