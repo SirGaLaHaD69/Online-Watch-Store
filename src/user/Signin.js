@@ -2,11 +2,13 @@ import React ,{useState}from 'react'
 import Base from '../core/Base'
 import { signin, authenticate, isAuthenticated } from '../auth/helper/index';
 import { Redirect } from 'react-router-dom';
+import googleLogin from "./helper/googleLogin"
+import GoogleLogin from 'react-google-login';
 
 export default function Signin() {
 
     const [values, setValues] = useState({
-        email:"black_marlin@gmail.com",
+        email:"black_marlin@gmauuuuil.com",
         password:"MorganStanley",
     })
     const {email,password}=values;
@@ -107,12 +109,36 @@ export default function Signin() {
             </div>
         )
     }
-
+    const responseGoogle = async(response) => {
+        console.log(response);
+        let googleID = response.googleId
+        let googleResponse  = await googleLogin(response.accessToken);
+        console.log("ended");
+        console.log(googleResponse);
+        if(googleResponse===200){
+          authenticate(googleID,()=>{
+            console.log("token added to local storage");
+            setError('')
+            setloadingmessage(true);
+            setTimeout(()=>setDidRedirect(true),2000)
+            
+        });
+        }
+      }
     return (
         <Base title="Login to Marlin Tees" description = "Signin to Continue Shopping">
         {error && errorMessage()}
         <LoadingMessage/>
         {SigninForm()}
+        <h1>hey</h1>
+        <div className="App">
+            <GoogleLogin
+            clientId="994732738453-i7nsteu16ub91els1r4l753nfnagaf0s.apps.googleusercontent.com"
+            buttonText="LOGIN WITH GOOGLE"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            />
+      </div>
         {redirectAfterSignin()}
         </Base>
     )

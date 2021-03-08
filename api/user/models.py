@@ -8,7 +8,7 @@ from .managers import CustomUserManager
 
 
 class CustomUser(AbstractUser):
-    username = None
+    # username = None
 
 
     name =  models.CharField(max_length=256,default='Anonymous')
