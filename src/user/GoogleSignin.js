@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 import googleLogin from "./helper/googleLogin"
+import { authenticate } from './../auth/helper/index';
 
 class GoogleSignin extends Component {
 
   render() {
     const responseGoogle = async(response) => {
-      console.log(response.accessToken)
+      let googleID = response.googleId
       let googleResponse  = await googleLogin(response.accessToken);
       console.log("ended");
       console.log(googleResponse);
-      console.log(response);
+      if(googleResponse===200){
+        authenticate(googleID);
+      }
     }
 
     return (

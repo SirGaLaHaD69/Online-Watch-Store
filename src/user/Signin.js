@@ -116,7 +116,7 @@ export default function Signin() {
         {SigninForm()}
         <h1>hey</h1>
         <GoogleSignin/>
-        {/* {redirectAfterSignin()} */}
+        {redirectAfterSignin()}
         </Base>
     )
 }
