@@ -2,7 +2,7 @@ import React ,{useState}from 'react'
 import Base from '../core/Base'
 import { signin, authenticate, isAuthenticated } from '../auth/helper/index';
 import { Redirect } from 'react-router-dom';
-import GoogleSignin from './GoogleSignin';
+import googleLogin from "./helper/googleLogin"
 
 export default function Signin() {
 
@@ -108,14 +108,36 @@ export default function Signin() {
             </div>
         )
     }
-
+    const responseGoogle = async(response) => {
+        console.log(response);
+        let googleID = response.googleId
+        let googleResponse  = await googleLogin(response.accessToken);
+        console.log("ended");
+        console.log(googleResponse);
+        if(googleResponse===200){
+          authenticate(googleID,()=>{
+            console.log("token added to local storage");
+            setError('')
+            setloadingmessage(true);
+            setTimeout(()=>setDidRedirect(true),2000)
+            
+        });
+        }
+      }
     return (
         <Base title="Login to Marlin Tees" description = "Signin to Continue Shopping">
         {error && errorMessage()}
         <LoadingMessage/>
         {SigninForm()}
         <h1>hey</h1>
-        <GoogleSignin/>
+        <div className="App">
+            <GoogleLogin
+            clientId="994732738453-i7nsteu16ub91els1r4l753nfnagaf0s.apps.googleusercontent.com"
+            buttonText="LOGIN WITH GOOGLE"
+            onSuccess={responseGoogle}
+            onFailure={responseGoogle}
+            />
+      </div>
         {redirectAfterSignin()}
         </Base>
     )
