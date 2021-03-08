@@ -3,6 +3,7 @@ import Base from '../core/Base'
 import { signin, authenticate, isAuthenticated } from '../auth/helper/index';
 import { Redirect } from 'react-router-dom';
 import googleLogin from "./helper/googleLogin"
+import GoogleLogin from 'react-google-login';
 
 export default function Signin() {
 
