@@ -6,7 +6,7 @@ import {API} from '../../backend';
  */
 const googleLogin = async (accesstoken) => {
     let res = await axios.post(
-      `${API}/rest-auth/google/`,
+      `https://marlin-the-watch-store.herokuapp.com/rest-auth/google/`,
       {
         access_token: accesstoken,
       }
