@@ -2,11 +2,12 @@ import React ,{useState}from 'react'
 import Base from '../core/Base'
 import { signin, authenticate, isAuthenticated } from '../auth/helper/index';
 import { Redirect } from 'react-router-dom';
+import GoogleSignin from './GoogleSignin';
 
 export default function Signin() {
 
     const [values, setValues] = useState({
-        email:"black_marlin@gmail.com",
+        email:"black_marlin@gmauuuuil.com",
         password:"MorganStanley",
     })
     const {email,password}=values;
@@ -113,7 +114,9 @@ export default function Signin() {
         {error && errorMessage()}
         <LoadingMessage/>
         {SigninForm()}
-        {redirectAfterSignin()}
+        <h1>hey</h1>
+        <GoogleSignin/>
+        {/* {redirectAfterSignin()} */}
         </Base>
     )
 }

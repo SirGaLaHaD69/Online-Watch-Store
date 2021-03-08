@@ -47,7 +47,17 @@ INSTALLED_APPS = [
     'api.user',
     'api.order',
     'api.payment',
-    'storages'
+    'social_login',
+    'storages',
+     'rest_auth',
+     #for social login
+     'django.contrib.sites',
+     'allauth',
+     'allauth.account',
+     'rest_auth.registration',
+     'allauth.socialaccount',
+     'allauth.socialaccount.providers.facebook',
+     'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -172,3 +182,5 @@ PUBLIC_MEDIA_LOCATION = 'media/'
 MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/media/'
 # DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
+
+SITE_ID = 1
