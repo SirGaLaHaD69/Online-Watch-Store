@@ -7,6 +7,7 @@ class GoogleSignin extends Component {
 
   render() {
     const responseGoogle = async(response) => {
+      console.log(response);
       let googleID = response.googleId
       let googleResponse  = await googleLogin(response.accessToken);
       console.log("ended");
