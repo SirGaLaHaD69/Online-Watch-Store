@@ -1,12 +1,12 @@
 import axios from "axios";
-
+import {API} from '../../backend';
 /**
  * 
  * @param {*} accesstoken This is the accesstoken of the user obtained from Google
  */
 const googleLogin = async (accesstoken) => {
     let res = await axios.post(
-      "http://localhost:8000/rest-auth/google/",
+      `${API}/rest-auth/google/`,
       {
         access_token: accesstoken,
       }
