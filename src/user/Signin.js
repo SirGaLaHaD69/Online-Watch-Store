@@ -104,6 +104,14 @@ export default function Signin() {
                         <button 
                         onClick = {onSubmitHandler}
                         className="btn btn-success btn-block">Submit</button>
+                        <div className="text-center m-3">
+                            <GoogleLogin
+                            clientId="994732738453-i7nsteu16ub91els1r4l753nfnagaf0s.apps.googleusercontent.com"
+                            buttonText="LOGIN WITH GOOGLE"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            />
+                        </div>
                     </form>
                 </div>
             </div>
@@ -129,16 +137,7 @@ export default function Signin() {
         <Base title="Login to Marlin Tees" description = "Signin to Continue Shopping">
         {error && errorMessage()}
         <LoadingMessage/>
-        {SigninForm()}
-        <h1>hey</h1>
-        <div className="App">
-            <GoogleLogin
-            clientId="994732738453-i7nsteu16ub91els1r4l753nfnagaf0s.apps.googleusercontent.com"
-            buttonText="LOGIN WITH GOOGLE"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            />
-      </div>
+        {SigninForm()}     
         {redirectAfterSignin()}
         </Base>
     )
