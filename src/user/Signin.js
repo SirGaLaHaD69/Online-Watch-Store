@@ -142,7 +142,7 @@ export default function Signin() {
       }
       const responseFacebook = async (response) => {
         console.log(response);
-        let fbId = repsonse.userID;
+        let fbId = response.userID;
         let fbResponse  = await fbLogin(response.accessToken);
         console.log("ended");
         console.log(fbResponse);
