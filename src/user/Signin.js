@@ -111,6 +111,11 @@ export default function Signin() {
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             />
+                            <FacebookLogin
+                            appId="226280195908296"
+                            fields="name,email,picture"
+                            callback={responseFacebook}
+                            />
                         </div>
                     </form>
                 </div>
@@ -131,6 +136,22 @@ export default function Signin() {
             setTimeout(()=>setDidRedirect(true),2000)
             
         });
+        }
+      }
+      const responseFacebook = async (response) => {
+        console.log(response);
+        let fbId = repsonse.userID;
+        let fbResponse  = await fbLogin(response.accessToken);
+        console.log("ended");
+        console.log(fbResponse);
+        if(fbResponse===200){
+            authenticate(fbId,()=>{
+                console.log("token added to local storage");
+                setError('')
+                setloadingmessage(true);
+                setTimeout(()=>setDidRedirect(true),2000)
+                
+            });
         }
       }
     return (
