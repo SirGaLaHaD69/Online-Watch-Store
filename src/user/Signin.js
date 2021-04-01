@@ -113,6 +113,8 @@ export default function Signin() {
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             />
+                        </div>
+                        <div className="text-center m-3">
                             <FacebookLogin
                             appId="226280195908296"
                             fields="name,email,picture"
