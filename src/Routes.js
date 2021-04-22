@@ -17,7 +17,7 @@ export default function Routes () {
             <Route path = '/signup' exact component ={Signup}/> 
             <Route path = '/signin' exact component ={Signin}/> 
             <Route path = '/cart' exact component ={Cart}/> 
-            <PrivateRoute path = "/my-orders" exact component = {MyOrders}/> 
+            <Route path = '/my-orders' exact component = {MyOrders}/> 
         </Switch>
         </Router>
     )
