@@ -139,11 +139,17 @@ export default function Signin() {
             console.log(allUsers);
             const googleUser = allUsers.filter(e=>e.email===response.profileObj.email);
             const browserToken = {
-              "user" : googleUser,
+              "user" : googleUser[0],
               "token": response.accessToken
             }
             console.log(browserToken);
-            authenticate(browserToken);
+            authenticate(browserToken,()=>{
+                console.log("token added to local storage");
+                setError('')
+                setloadingmessage(true);
+                setTimeout(()=>setDidRedirect(true),2000)
+                
+            });
           }
       }
       const getAllUsers =()=>{
