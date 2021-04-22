@@ -16,11 +16,12 @@ class GoogleSignin extends Component {
       console.log(googleResponse);
       if(googleResponse===200){
         let allUsers = getAllUsers();
-        const googleUser = getAllUsers.filter(e=>e.email===response.profileObj.email)
+        const googleUser = getAllUsers.filter(e=>e.email===response.profileObj.email);
         const browserToken = {
-              "user" : googleUser,
-              "token": response.accessToken
+          "user" : googleUser,
+          "token": response.accessToken
         }
+        console.log(browserToken);
         authenticate(browserToken);
       }
     }
