@@ -15,8 +15,21 @@ class GoogleSignin extends Component {
       console.log("ended");
       console.log(googleResponse);
       if(googleResponse===200){
-        authenticate(googleID);
+        let allUsers = getAllUsers();
+        const googleUser = getAllUsers.filter(e=>e.email===response.profileObj.email)
+        const browserToken = {
+              "user" : googleUser,
+              "token": response.accessToken
+        }
+        authenticate(browserToken);
       }
+    }
+    const getAllUsers =()=>{
+      return fetch(`${API}user/`,{
+        method: "GET",
+    })
+    .then(response=>response.json())
+    .catch(err=>console.log(err))
     }
     const responseFacebook = async (response) => {
       console.log(response);
