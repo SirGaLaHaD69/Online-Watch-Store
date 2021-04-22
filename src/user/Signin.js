@@ -4,6 +4,9 @@ import { signin, authenticate, isAuthenticated } from '../auth/helper/index';
 import { Redirect } from 'react-router-dom';
 import googleLogin from "./helper/googleLogin"
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import fbLogin from './helper/fbLogin';
+import {API} from '../backend';
 
 export default function Signin() {
 
@@ -104,6 +107,21 @@ export default function Signin() {
                         <button 
                         onClick = {onSubmitHandler}
                         className="btn btn-success btn-block">Submit</button>
+                        <div className="text-center m-3">
+                            <GoogleLogin
+                            clientId="994732738453-i7nsteu16ub91els1r4l753nfnagaf0s.apps.googleusercontent.com"
+                            buttonText="LOGIN WITH GOOGLE"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            />
+                        </div>
+                        <div className="text-center m-3">
+                            <FacebookLogin
+                            appId="226280195908296"
+                            fields="name,email,picture"
+                            callback={responseFacebook}
+                            />
+                        </div>
                     </form>
                 </div>
             </div>
@@ -116,29 +134,52 @@ export default function Signin() {
         console.log("ended");
         console.log(googleResponse);
         if(googleResponse===200){
-          authenticate(googleID,()=>{
-            console.log("token added to local storage");
-            setError('')
-            setloadingmessage(true);
-            setTimeout(()=>setDidRedirect(true),2000)
-            
-        });
+            console.log("hee");
+            let allUsers = await getAllUsers();
+            console.log(allUsers);
+            const googleUser = allUsers.filter(e=>e.email===response.profileObj.email);
+            const browserToken = {
+              "user" : googleUser[0],
+              "token": response.accessToken
+            }
+            console.log(browserToken);
+            authenticate(browserToken,()=>{
+                console.log("token added to local storage");
+                setError('')
+                setloadingmessage(true);
+                setTimeout(()=>setDidRedirect(true),2000)
+                
+            });
+          }
+      }
+      const getAllUsers =()=>{
+        return fetch(`${API}user/`,{
+          method: "GET",
+      })
+      .then(response=>response.json())
+      .catch(err=>console.log(err))
+      }
+      const responseFacebook = async (response) => {
+        console.log(response);
+        let fbId = response.userID;
+        let fbResponse  = await fbLogin(response.accessToken);
+        console.log("ended");
+        console.log(fbResponse);
+        if(fbResponse===200){
+            authenticate(fbId,()=>{
+                console.log("token added to local storage");
+                setError('')
+                setloadingmessage(true);
+                setTimeout(()=>setDidRedirect(true),2000)
+                
+            });
         }
       }
     return (
         <Base title="Login to Marlin Tees" description = "Signin to Continue Shopping">
         {error && errorMessage()}
         <LoadingMessage/>
-        {SigninForm()}
-        <h1>hey</h1>
-        <div className="App">
-            <GoogleLogin
-            clientId="994732738453-i7nsteu16ub91els1r4l753nfnagaf0s.apps.googleusercontent.com"
-            buttonText="LOGIN WITH GOOGLE"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            />
-      </div>
+        {SigninForm()}     
         {redirectAfterSignin()}
         </Base>
     )

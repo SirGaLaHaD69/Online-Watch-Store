@@ -30,7 +30,7 @@ export default function Base({
                         <a href="https://www.linkedin.com/in/theblackmarlin/" target="_blank"><button className="btn btn-dark btn-lg" > Contact me</button></a>
                     <div className="container">
                         <span className='text-danger'>
-                            Django React 
+                            Django Reacteeeeeeeeeeerrrrrrr
                         </span>
                     </div>
                 </div>

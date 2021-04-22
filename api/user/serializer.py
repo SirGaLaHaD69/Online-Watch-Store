@@ -36,6 +36,6 @@ class UserSerializer(serializers.ModelSerializer):
 
         extra_kwargs = {'password':{'write_only':True}}
 
-        fields = ('name','email','password','phone','gender','is_active','is_staff','is_superuser')
+        fields = ('id','name','email','password','phone','gender','is_active','is_staff','is_superuser')
 
         

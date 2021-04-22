@@ -27,6 +27,7 @@ urlpatterns = [
 
     path('rest-auth/facebook/', FacebookLogin.as_view(), name='fb_login'),
     path('accounts/', include('allauth.urls')),
+    path('rest-auth/facebook/', FacebookLogin.as_view(), name='fb_login'),
     path('rest-auth/google/', GoogleLogin.as_view(), name='google_login') ,
     re_path('.*',TemplateView.as_view(template_name = 'index.html')),
  
