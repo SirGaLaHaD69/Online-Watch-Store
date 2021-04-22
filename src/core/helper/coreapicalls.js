@@ -7,5 +7,11 @@ export const getProduct = ()=>{
     .catch(err=>console.log('Unable to fetch API ERROR: ', err))
     )
 }
-
+ export const getOrder = () =>{
+    return(
+        fetch(`${API}order/`,{method: 'GET'})
+        .then(response=>response.json())
+        .catch(err=>console.log('Unable to fetch [Order API] ERROR: ', err))
+        )
+ }
 

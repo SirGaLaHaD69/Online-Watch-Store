@@ -23,7 +23,7 @@ const Menu = ({history,path})=> {
         {isAuthenticated() && 
             <Fragment>
                 <li className="nav-item active m-2 ">
-                    <Link className="nav-link  px-4 rounded-lg mynav" to = '/user/dashboard' style = {currentTab(history,'/user/dashboard')} >Profile</Link>
+                    <Link className="nav-link  px-4 rounded-lg mynav" to = '/my-orders' style = {currentTab(history,'/my-orders')} >My Orders</Link>
                 </li>
                 <li className="nav-item active m-2 ">
                     <Link className="nav-link  px-4 rounded-lg mynav" to = '/cart' style = {currentTab(history,'/cart')} >Cart </Link>
