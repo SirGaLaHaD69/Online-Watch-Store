@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './core/Home';
-import PrivateRoute from './auth/helper/PrivateRoutes'
 import Signup from './user/Signup';
 import MyOrders from './user/MyOrders';
 import Signin from './user/Signin';
