@@ -135,7 +135,7 @@ export default function Signin() {
         console.log(googleResponse);
         if(googleResponse===200){
             console.log("hee");
-            let allUsers = getAllUsers();
+            let allUsers = await getAllUsers();
             console.log(allUsers);
             const googleUser = allUsers.filter(e=>e.email===response.profileObj.email);
             const browserToken = {
