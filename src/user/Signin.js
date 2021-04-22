@@ -133,14 +133,23 @@ export default function Signin() {
         console.log("ended");
         console.log(googleResponse);
         if(googleResponse===200){
-          authenticate(googleID,()=>{
-            console.log("token added to local storage");
-            setError('')
-            setloadingmessage(true);
-            setTimeout(()=>setDidRedirect(true),2000)
-            
-        });
-        }
+            console.log("hee");
+            let allUsers = getAllUsers();
+            const googleUser = getAllUsers.filter(e=>e.email===response.profileObj.email);
+            const browserToken = {
+              "user" : googleUser,
+              "token": response.accessToken
+            }
+            console.log(browserToken);
+            authenticate(browserToken);
+          }
+      }
+      const getAllUsers =()=>{
+        return fetch(`${API}user/`,{
+          method: "GET",
+      })
+      .then(response=>response.json())
+      .catch(err=>console.log(err))
       }
       const responseFacebook = async (response) => {
         console.log(response);
