@@ -6,7 +6,7 @@ import googleLogin from "./helper/googleLogin"
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import fbLogin from './helper/fbLogin';
-import {API} from '../../backend';
+import {API} from '../backend';
 
 export default function Signin() {
 
