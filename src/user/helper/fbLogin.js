@@ -8,7 +8,7 @@ const fbLogin = async (accesstoken) => {
     }
   );
   console.log(res);
-  return await res.status;
+  return  res.status;
 };
 
 export default fbLogin;
