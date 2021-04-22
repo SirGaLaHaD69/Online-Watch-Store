@@ -5,6 +5,6 @@ from .models import Order
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
-        fields = ('user')
+        fields = '__all__'
 
         #todo: add product and quantity in fields

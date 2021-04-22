@@ -166,15 +166,25 @@ export default function Signin() {
         console.log("ended");
         console.log(fbResponse);
         if(fbResponse===200){
-            authenticate(fbId,()=>{
+            console.log("hee");
+            let allUsers = await getAllUsers();
+            console.log(allUsers);
+            const fbUser = allUsers.filter(e=>e.email===response.email);
+            const browserToken = {
+              "user" : fbUser[0],
+              "token": response.accessToken
+            }
+            console.log(browserToken);
+            authenticate(browserToken,()=>{
                 console.log("token added to local storage");
                 setError('')
                 setloadingmessage(true);
                 setTimeout(()=>setDidRedirect(true),2000)
                 
             });
+          }
         }
-      }
+      
     return (
         <Base title="Login to Marlin Tees" description = "Signin to Continue Shopping">
         {error && errorMessage()}
