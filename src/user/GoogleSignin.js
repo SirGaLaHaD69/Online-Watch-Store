@@ -12,9 +12,10 @@ class GoogleSignin extends Component {
       console.log(response);
       let googleID = response.googleId
       let googleResponse  = await googleLogin(response.accessToken);
-      console.log("ended");
+      console.log("eneeeeeeeeeeeeded");
       console.log(googleResponse);
       if(googleResponse===200){
+        console.log("hee");
         let allUsers = getAllUsers();
         const googleUser = getAllUsers.filter(e=>e.email===response.profileObj.email);
         const browserToken = {
